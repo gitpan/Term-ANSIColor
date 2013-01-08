@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Term-ANSIColor
-version:            4.01
+version:            4.02
 abstract:           Color output using ANSI escape sequences
 author:
     - Russ Allbery <rra@stanford.edu>
@@ -10,7 +10,8 @@ configure_requires:
     ExtUtils::MakeMaker:  0
 build_requires:
     ExtUtils::MakeMaker:  0
-requires:  {}
+requires:
+    perl:  5.006
 no_index:
     directory:
         - t
