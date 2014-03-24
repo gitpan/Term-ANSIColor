@@ -1,4 +1,4 @@
-                       Term::ANSIColor version 4.02
+                           Term::ANSIColor 4.03
               (A simple ANSI text attribute control module)
 
   This program is free software; you may redistribute it and/or modify it
@@ -60,29 +60,25 @@ REQUIREMENTS
   table in the documentation, please send them to me.
 
   The test suite requires Perl and Test::More (part of Perl since 5.6.2).
-  It also makes use of additional Perl modules for some tests.  These
-  tests will be skipped automatically if the modules aren't available.  To
-  run the full set of default tests, you will need the Perl modules:
+  It also makes use Test::Warn if it is available, but skips the relevant
+  tests if that module is not installed.
 
-      Perl::Critic
-      Test::MinimumVersion
-      Test::Pod
-      Test::Pod::Coverage
-      Test::Strict
-      Test::Synopsis
-      Test::Warn
-
-  and their dependencies.  These modules are all available from CPAN.
-
-  Some parts of the test suite are suppressed by default because those
-  tests are normally only useful for the maintainer.  This includes tests
-  of POD spelling and Perl coding style.  To enable those tests, set the
-  environment variable RRA_MAINTAINER_TESTS to a true value.  For these
-  tests, the additional Perl modules:
+  To enable tests that don't detect functionality problems but are used to
+  sanity-check the release, set the environment variable RELEASE_TESTING
+  to a true value.  To enable tests that may be sensitive to the local
+  environment or that produce a lot of false positives without uncovering
+  many problems, set the environment variable AUTHOR_TESTING to a true
+  value.  For these tests, the additional Perl modules:
 
       Devel::Cover
+      Perl::Critic
+      Test::MinimumVersion
       Test::Perl::Critic
+      Test::Pod
+      Test::Pod::Coverage
       Test::Spelling
+      Test::Strict
+      Test::Synopsis
 
   and their dependencies as well as a spell-checking program (several are
   supported by Test::Spelling) are required.  These modules are all
@@ -119,7 +115,7 @@ SUPPORT
 
       https://rt.cpan.org/Public/Dist/Display.html?Name=Term-ANSIColor
 
-  I welcome bug reports and patches for this package at rra@stanford.edu
+  I welcome bug reports and patches for this package at rra@cpan.org
   or via the CPAN bug tracker.  However, please be aware that I tend to be
   extremely busy and work projects often take priority.  I'll save your
   mail and get to it as soon as I can, but it may take me a couple of
@@ -219,6 +215,10 @@ THANKS
   To David Cantrell for testing with Perl 5.6.2 and debugging why a test
   case didn't work with its version of Exporter.
 
+  To Olivier Mengué for fixing a SYNOPSIS quoting error and for various
+  other build fixes and recommendations about environment variables for
+  test control.
+
   To Larry Wall, as always, for Perl.
 
 LICENSE
@@ -228,7 +228,7 @@ LICENSE
 
     Copyright 1996 Zenin
     Copyright 1996, 1997, 1998, 2000, 2001, 2002, 2005, 2006, 2008, 2009,
-        2010, 2011, 2012, 2013 Russ Allbery <rra@stanford.edu>
+        2010, 2011, 2012, 2013, 2014 Russ Allbery <rra@cpan.org>
     Copyright 2012 Kurt Starsinic <kstarsinic@gmail.com>
 
     This program is free software; you may redistribute it and/or modify
